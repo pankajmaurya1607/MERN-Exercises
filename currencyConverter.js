@@ -5,11 +5,13 @@
 
 const express = require("express")
 const axios = require("axios")
+require("dotenv").config()
 
 const app = express();
 const PORT = 3000
 
-const API_KEY = "6ab469d51d2cd5803e7c1671"
+const API_KEY = process.env.Exchange_Rate_API_Key
+
 // GET /convert?from=USD&to=INR&amount=10
 app.get("/convert", async(req, res) => {
     const {from, to, amount} = req.query;
